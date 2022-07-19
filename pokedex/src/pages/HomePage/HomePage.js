@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from '../../Img/logo.png'
-import {HomeContainer,HeaderHome,ImgLogo,HomeMain } from "./HomePage.styled"
+import {HomeContainer,HeaderHome,ImgLogo,HomeMain, HeaderButton } from "./HomePage.styled"
 import {useNavigate} from "react-router-dom"
 
 
@@ -14,7 +14,7 @@ function HomePage() {
     <HomeContainer>
       <HeaderHome>
         <ImgLogo src={Logo} alt="logo pokemon"/>
-        <button onClick={goToPokedex}>Pokédex</button>
+        <HeaderButton onClick={goToPokedex}>Pokédex</HeaderButton>
       </HeaderHome>
       <HomeMain>
         <h1>Todos Pokémons</h1>
