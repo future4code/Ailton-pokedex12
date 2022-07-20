@@ -13,7 +13,8 @@ export const HeaderHome = styled.header`
   width: 100%;
   background-color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-around ;
+  border: 1px solid black;
 `
 export const ImgLogo = styled.img`
   width: 400px;
