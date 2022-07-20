@@ -5,7 +5,6 @@ export const HomeContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `
 export const HeaderHome = styled.header`
@@ -32,10 +31,32 @@ export const HeaderButton= styled.button`
 `
 export const HomeMain = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 80vh;
   background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   h1{
     color: white;
+  }
+`
+export const CardHome = styled.div`
+  overflow: auto;
+  width: 100%;
+  height: 70vh;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+`
+export const CardDIV = styled.div`
+  background-color: pink;
+  width: 500px;
+  height: 200px;
 
+  img{
+    height: 30px;
   }
 `
