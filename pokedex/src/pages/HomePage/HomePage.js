@@ -1,16 +1,19 @@
 import React, { useState, useEffect} from "react";
 import Logo from '../../Img/logo.png'
-import {HomeContainer,HeaderHome,ImgLogo,HomeMain, HeaderButton } from "./HomePage.styled"
+import {HomeContainer,HeaderHome,ImgLogo,HomeMain, HeaderButton,CardHome, CardDIV } from "./HomePage.styled"
 import {useNavigate} from "react-router-dom"
 import axios from "axios";
 
 
-function HomePage() {
+function HomePage(props) {
   const navigate = useNavigate()
 
   const goToPokedex = ()=>{
     navigate("/pokedex")
 
+  }
+  const goToDetails = (name)=>{
+    navigate(`/pokedex/details/${name}`)
   }
 
   const [pokeList, setPokeList] = useState([]);
@@ -42,22 +45,7 @@ function HomePage() {
     });
 
   },[pokeList]);
-
-//   const pokeDetail = pokeList.length === 20 && pokeList.map((pokemon) => {
-//    const novaLista = []
-//     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-//     .then((res) => {
-//       novaLista.push(res.data) 
-//       console.log(novaLista)
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     }); 
-// })
-
-
-
-  console.log(pokeDetails)
+  
   return (
     <HomeContainer>
       <HeaderHome>
@@ -66,10 +54,23 @@ function HomePage() {
       </HeaderHome>
       <HomeMain>
         <h1>Todos Pokémons</h1>
-         oi eu sou a home page
-         {pokeDetails.map((poke) => {
-        return <img src={poke.sprites.front_shiny} />;
-        })}
+        <CardHome>
+          {pokeDetails?.map((poke) => {
+          return (
+          <CardDIV key={poke.id}>
+            <p>{poke.name}</p>
+            <p>{poke.types[0].type.name}</p>
+            <p>{poke.types[1]?.type.name}</p>
+            <img src={poke.sprites.other.dream_world.front_default}/>
+            <div>
+              <p onClick={()=>{
+                goToDetails(poke.name)
+                props.setDetails(poke)}}>Detalhes</p>
+              <button>Capturar!</button>
+            </div>
+          </CardDIV>
+          )})}
+        </CardHome>
       </HomeMain>
     </HomeContainer>
   );
