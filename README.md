@@ -60,5 +60,5 @@ $ npm run start
   - [GitHub](https://github.com/JuliaMoniz27)
 
 - Jorge Nunes
-  - [LinkedIn]()
+  - [LinkedIn](https://www.linkedin.com/in/jorge-nunes-205b8016/)
   - [GitHub](https://github.com/Jorgernunes)
