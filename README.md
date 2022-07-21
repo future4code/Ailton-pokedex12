@@ -16,6 +16,7 @@
 - [React](https://pt-br.reactjs.org/)
 - [JavaScript]()
 - [CSS]()
+- [HTML]()
 - [Git]()
 - [Styled-Coponent]()
 - [Api-Rest]()
