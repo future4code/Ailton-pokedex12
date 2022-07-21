@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../Img/logo.png"
 import {HomeContainer,HeaderHome,ImgLogo } from "../HomePage/HomePage.styled"
-import { ContainerDetail, HeaderButtonPokedex,CardFront, CardBack, CardImg, CardBaseStatus, CardStatus, CardBaseMoves, CardMoves} from "./PokemonDetails.styled";
+import { ContainerDetail, HeaderButtonPokedex,CardFront, CardBack, CardImg, CardBaseStatus, CardStatus, CardBaseMoves, CardMoves, CardFinal} from "./PokemonDetails.styled";
 import {useNavigate} from "react-router-dom"
 
 
@@ -45,19 +45,27 @@ function PokemonDetails(props) {
           <CardBaseMoves>
             <CardMoves>
               <h2>Moves:</h2>
-            {
-              props.details.abilities.map(pokemom => {
+              <p>{props.details.moves[0].move.name}</p>
+              <p>{props.details.moves[1].move.name}</p>
+              <p>{props.details.moves[2].move.name}</p>
+              <p>{props.details.moves[3].move.name}</p>
+            </CardMoves>
+          </CardBaseMoves>
+          <CardFinal>
+
+          <h2>#{props.details.id}</h2>
+          <h2>{props.details.name}</h2>
+          {
+              props.details.types.map(poketype => {
                 return(
                   <>
-                    <p>{pokemom.ability.name}</p>
+                    <CardFinal>{poketype.type.name}</CardFinal>
                   </>
                 )
               })
             }
-            </CardMoves>
-          </CardBaseMoves>
-         
-           
+          <img src={props.details?.sprites.other.home.front_default} alt="Pokemom"/> 
+          </CardFinal>
           
          
         </ContainerDetail>
