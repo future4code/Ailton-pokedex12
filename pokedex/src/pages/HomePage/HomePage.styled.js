@@ -21,6 +21,7 @@ export const ImgLogo = styled.img`
   width: 400px;
   height: 150px;
   
+  
 `
 export const HeaderButton= styled.button`
   height: 74px;
