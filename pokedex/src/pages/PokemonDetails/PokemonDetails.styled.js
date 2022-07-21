@@ -61,8 +61,10 @@ export const CardBaseMoves = styled.div`
   width: 292px;
   `
 export const CardMoves = styled.div`
-margin: 10px;
-
+margin: 1px;
+`
+export const CardFinal = styled.div`
+display: flex;
+flex-direction: column;
 
 `
-
