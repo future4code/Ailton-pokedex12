@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../Img/logo.png"
-import {HomeContainer,HeaderHome,ImgLogo,HomeMain } from "../HomePage/HomePage.styled"
-import { HeaderButtonPokedex } from "./PokemonDetails.styled";
+import {HomeContainer,HeaderHome,ImgLogo } from "../HomePage/HomePage.styled"
+import { ContainerDetail, HeaderButtonPokedex,CardFront, CardBack, CardImg, CardBaseStatus, CardStatus, CardBaseMoves, CardMoves} from "./PokemonDetails.styled";
 import {useNavigate} from "react-router-dom"
 
 
@@ -18,15 +18,50 @@ function PokemonDetails(props) {
       <ImgLogo src={Logo} alt="logo pokemon"/>
       <HeaderButtonPokedex>Excluir da Pokédex</HeaderButtonPokedex>
       </HeaderHome>
-      <HomeMain>
-        <div>
-        <img src={props.details?.sprites.front_default}/>
-        <img src={props.details?.sprites.back_default}/>
-        
-        {props.details?.name}
+      {/* <HomeMain> */}
+        <ContainerDetail key={props.details?.name}>
+          <CardImg>
+           <CardFront>
+              <img src={props.details?.sprites.front_default} alt="Pokemom"/>
+            </CardFront>
+           <CardBack>
+             <img src={props.details?.sprites.back_default} alt="Pokemom"/>
+           </CardBack>
+          </CardImg>
+          <CardBaseStatus>
+            <CardStatus>
+              <h2>Base Status</h2>
+              {
+              props.details.stats.map(pokemom => {
+                return(
+                  <>
+                    <p>{pokemom.stat.name}: {pokemom.base_stat}</p>
+                  </>
+                )
+              })
+            }
+            </CardStatus>  
+          </CardBaseStatus>
+          <CardBaseMoves>
+            <CardMoves>
+              <h2>Moves:</h2>
+            {
+              props.details.abilities.map(pokemom => {
+                return(
+                  <>
+                    <p>{pokemom.ability.name}</p>
+                  </>
+                )
+              })
+            }
+            </CardMoves>
+          </CardBaseMoves>
          
-        </div>
-      </HomeMain>
+           
+          
+         
+        </ContainerDetail>
+      {/* </HomeMain> */}
     </HomeContainer>
   );
 }
