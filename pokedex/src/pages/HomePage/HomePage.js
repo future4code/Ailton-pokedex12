@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import Logo from '../../Img/logo.png'
-import {HomeContainer,HeaderHome,ImgLogo,HomeMain, HeaderButton,CardHome, CardDIV } from "./HomePage.styled"
+import {HomeContainer,HeaderHome,ImgLogo,HomeMain, HeaderButton,CardHome, Card, CardPart1, Pid,PName,ContainerTypes, PokeImg,CardPart2} from "./HomePage.styled"
 import {useNavigate} from "react-router-dom"
 import axios from "axios";
 
@@ -45,7 +45,7 @@ function HomePage(props) {
     });
 
   },[pokeList]);
-  
+  console.log(pokeDetails)
   return (
     <HomeContainer>
       <HeaderHome>
@@ -57,18 +57,27 @@ function HomePage(props) {
         <CardHome>
           {pokeDetails?.map((poke) => {
           return (
-          <CardDIV key={poke.id}>
-            <p>{poke.name}</p>
+          <Card key={poke.id}>
+            <CardPart1>
+            <div>
+            <Pid><strong>#{poke.id}</strong></Pid>
+            <PName>{poke.name}</PName>
+            <ContainerTypes>
             <p>{poke.types[0].type.name}</p>
             <p>{poke.types[1]?.type.name}</p>
-            <img src={poke.sprites.other.dream_world.front_default}/>
+            </ContainerTypes>
+            </div>
             <div>
+            <PokeImg src={poke.sprites.other["official-artwork"].front_default} alt={poke.name}/>
+            </div>
+            </CardPart1>
+            <CardPart2>
               <p onClick={()=>{
                 goToDetails(poke.name)
                 props.setDetails(poke)}}>Detalhes</p>
               <button>Capturar!</button>
-            </div>
-          </CardDIV>
+            </CardPart2>
+          </Card>
           )})}
         </CardHome>
       </HomeMain>
