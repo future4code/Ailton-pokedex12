@@ -6,13 +6,34 @@ import PokemonDetails from "../pages/PokemonDetails/PokemonDetails"
 
 export const  Router = ()=>{
 const [details, setDetails]= useState({})
+const [pokeList, setPokeList] = useState([]);
+const [pokeDetails, setPokeDetails] = useState([]);
+const [pokedex,setPokedex]=useState([])
 
 
+
+const addPokemon = (info)=>{
+  const filterPokemons = pokeDetails.filter((dado)=>{
+    return dado.id=== info
+  });
+  const pokedexCopy=[...pokedex]
+  pokedexCopy.push(filterPokemons[0])
+  setPokedex(pokedexCopy)
+  console.log(pokedex)
+}
+ const removePokemon = (id) => {    
+  if (window.confirm('Tem certeza que deseja remover esse Pokemon da Pokédex?')) {
+  const deletePokemon = pokedex.filter((dados) => {
+    return dados.id !== id;
+  });
+  setPokedex(deletePokemon);
+}
+};
   return(
     <BrowserRouter>
     <Routes>
-      <Route index element={<HomePage setDetails={setDetails}/>}/>
-      <Route exact path="/pokedex" element={<Pokedex/>}/>
+      <Route index element={<HomePage setDetails={setDetails} addPokemon={addPokemon} pokeList={pokeList} setPokeList={setPokeList} pokeDetails={pokeDetails} setPokeDetails={setPokeDetails}/>}/>
+      <Route exact path="/pokedex" element={<Pokedex  setDetails={setDetails} pokedex={pokedex} setPokedex={setPokedex} removePokemon={removePokemon}/>}/>
       <Route exact path="/pokedex/details/:name" element={<PokemonDetails details={details}/>}/>
     </Routes>
     </BrowserRouter>

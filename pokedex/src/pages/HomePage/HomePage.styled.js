@@ -15,13 +15,11 @@ export const HeaderHome = styled.header`
   background-color: white;
   display: flex;
   justify-content: space-around ;
-  border: 1px solid black;
+  align-items: center;
 `
 export const ImgLogo = styled.img`
   width: 400px;
   height: 150px;
-  
-  
 `
 export const HeaderButton= styled.button`
   height: 74px;
@@ -37,7 +35,7 @@ export const HomeMain = styled.div`
   height: 100%;
   min-height: 80vh;
   background-color: grey;
-  margin: 0 10px 55px 10px;
+  margin: 0 10px 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
