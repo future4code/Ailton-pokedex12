@@ -1,7 +1,9 @@
 import React from "react";
 import Logo from "../../Img/logo.png"
-import {HomeContainer,HeaderHome,ImgLogo } from "../HomePage/HomePage.styled"
 import { ContainerDetail, HeaderButtonPokedex,CardFront, CardBack, CardImg, CardBaseStatus, CardStatus, CardBaseMoves, CardMoves, CardFinal} from "./PokemonDetails.styled";
+import {HomeContainer,HeaderHome,ImgLogo,HomeMain } from "../HomePage/HomePage.styled"
+
+
 import {useNavigate} from "react-router-dom"
 
 
@@ -18,7 +20,7 @@ function PokemonDetails(props) {
       <ImgLogo src={Logo} alt="logo pokemon"/>
       <HeaderButtonPokedex>Excluir da Pokédex</HeaderButtonPokedex>
       </HeaderHome>
-      {/* <HomeMain> */}
+      <HomeMain>
         <ContainerDetail key={props.details?.name}>
           <CardImg>
            <CardFront>
@@ -69,7 +71,7 @@ function PokemonDetails(props) {
           
          
         </ContainerDetail>
-      {/* </HomeMain> */}
+      </HomeMain>
     </HomeContainer>
   );
 }

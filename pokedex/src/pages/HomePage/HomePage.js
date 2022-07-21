@@ -10,42 +10,36 @@ function HomePage(props) {
 
   const goToPokedex = ()=>{
     navigate("/pokedex")
-
   }
   const goToDetails = (name)=>{
     navigate(`/pokedex/details/${name}`)
   }
-
-  const [pokeList, setPokeList] = useState([]);
-  const [pokeDetails, setPokeDetails] = useState([]);
   useEffect(() => { 
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?limit=20")
       .then((res) => {
-        setPokeList(res.data.results)
+        props.setPokeList(res.data.results)
         
       })
       .catch((err) => {
         console.log(err.response);
       }); 
   },  [ ]);
- 
   useEffect(() =>{
     const newList =[];
-    pokeList.map((poke) =>{
+    props.pokeList.map((poke) =>{
       axios
       .get(`https://pokeapi.co/api/v2/pokemon/${poke.name}`)
       .then((res)=> {
         newList.push(res.data);
         if(newList.length === 20) {
-          setPokeDetails(newList);
+          props.setPokeDetails(newList);
         }
         
       });
     });
 
-  },[pokeList]);
-  console.log(pokeDetails)
+  },[props.pokeList]);
   return (
     <HomeContainer>
       <HeaderHome>
@@ -55,7 +49,7 @@ function HomePage(props) {
       <HomeMain>
         <h1>Todos Pokémons</h1>
         <CardHome>
-          {pokeDetails?.map((poke) => {
+          {props.pokeDetails?.map((poke) => {
           return (
           <Card key={poke.id}>
             <CardPart1>
@@ -75,7 +69,7 @@ function HomePage(props) {
               <p onClick={()=>{
                 goToDetails(poke.name)
                 props.setDetails(poke)}}>Detalhes</p>
-              <button>Capturar!</button>
+              <button onClick={()=>props.addPokemon(poke.id)}>Capturar!</button>
             </CardPart2>
           </Card>
           )})}
