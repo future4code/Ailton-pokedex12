@@ -1,5 +1,5 @@
 # Projeto Pokédex 
-
+npm run
 [Link do Surge](https://befitting-pest.surge.sh/)
 
 <p align="center">

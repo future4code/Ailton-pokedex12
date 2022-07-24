@@ -19,7 +19,7 @@ const addPokemon = (info)=>{
   const pokedexCopy=[...pokedex]
   pokedexCopy.push(filterPokemons[0])
   setPokedex(pokedexCopy)
-  console.log(pokedex)
+  alert("Pokémon Capturado! Não clique no mesmo pokémon")
 }
  const removePokemon = (id) => {    
   if (window.confirm('Tem certeza que deseja remover esse Pokemon da Pokédex?')) {
