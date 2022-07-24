@@ -10,7 +10,7 @@
 </p>
 
 ## Sobre
-<p> Esse projeto...</p>
+Esse projeto tem como objetivo a criação de uma Pokédex com base na API pública [Poke Api](https://pokeapi.co/). Tinha como requisito uma Home(o usuário deve receber uma lista de pokemons vinda da API. Ele pode armazenar Pokemons em sua Pokedex clicando em cada um); Pokedex(o usuário deve pode ver os Pokemons que foram adicionados em sua Pokedex); e Detalhes do Pokemon (Deve ser possível ir para uma página de detalhes do Pokemon ao clicar no mesmo, estando tanto na Home quanto na Pokedex)
 
 ## Tecnologias
 - [React](https://pt-br.reactjs.org/)
