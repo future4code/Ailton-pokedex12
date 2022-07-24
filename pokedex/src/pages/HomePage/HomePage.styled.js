@@ -41,10 +41,12 @@ export const HomeMain = styled.div`
   justify-content: center;
   h1{
     color: white;
+    height: 10vh;
   }
 `
 export const CardHome = styled.div`
   width: 100%;
+  min-height: 70vh;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -55,7 +57,7 @@ export const CardHome = styled.div`
 `
 export const Card = styled.div`
   background-image: url(${Pokebola});
-  background-color: blue;
+  background-color: #5269AC;
   background-size: 250px;
   background-repeat: no-repeat;
   background-position: top right;

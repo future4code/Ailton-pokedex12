@@ -3,6 +3,7 @@ import Logo from '../../Img/logo.png'
 import {HomeContainer,HeaderHome,ImgLogo,HomeMain, HeaderButton,CardHome, Card, CardPart1, Pid,PName,ContainerTypes, PokeImg,CardPart2} from "./HomePage.styled"
 import {useNavigate} from "react-router-dom"
 import axios from "axios";
+import TypeOf from "../../components/Type";
 
 
 function HomePage(props) {
@@ -57,8 +58,9 @@ function HomePage(props) {
             <Pid><strong>#{poke.id}</strong></Pid>
             <PName>{poke.name}</PName>
             <ContainerTypes>
-            <p>{poke.types[0].type.name}</p>
-            <p>{poke.types[1]?.type.name}</p>
+            {/* <p>{poke.types[0].type.name}</p>
+            <p>{poke.types[1]?.type.name}</p> */}
+            {TypeOf(poke.types)}
             </ContainerTypes>
             </div>
             <div>
